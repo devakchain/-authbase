@@ -1,12 +1,117 @@
-# React + Vite
+# AuthBase – MERN Authentication System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal full-stack authentication system built with **MongoDB**, **Express**, **React**, and **Node.js**.  
+Includes user registration, login, protected routes, session handling via HTTP-only cookies, and role-based state via React Context.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Secure registration & login with hashed passwords (bcryptjs)
+- JWT authentication via HTTP-only cookies
+- React Context for global auth state
+- Protected routes (`/profile`) via middleware
+- Error handling with user-friendly feedback
+- Basic and clean UI, ready for extension
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+- **Frontend**: React, Axios, Vite
+- **Backend**: Node.js, Express, MongoDB, Mongoose
+- **Authentication**: bcryptjs, jsonwebtoken
+- **Session Handling**: Cookies (`withCredentials: true`)
+- **State Management**: React Context API
+
+---
+
+## Folder Structure
+
+```plaintext
+.
+├── client/
+│   ├── pages/           # Login, Register, Profile
+│   ├── components/      # Navbar
+│   └── styles/          # CSS files
+│
+├── backend/
+│   ├── controllers/     # authController.js
+│   ├── middleware/      # authMiddleware.js
+│   ├── models/          # User model (Mongoose)
+│   └── routes/          # authRoutes.js
+```
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/AuthBase.git
+cd AuthBase
+```
+
+### 2. Install dependencies
+
+```bash
+# For backend
+cd backend
+npm install
+
+# For frontend
+cd ../client
+npm install
+```
+
+### 3. Setup environment variables
+
+Create a `.env` file inside `backend/` with the following:
+
+```env
+PORT=3000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_super_secret
+```
+
+### 4. Run the app
+
+```bash
+# Terminal 1 - Backend
+cd backend
+npm run dev
+
+# Terminal 2 - Frontend
+cd client
+npm run dev
+```
+
+Visit: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## Notes
+
+- Authentication is managed using **HTTP-only cookies** for better security
+- JWT tokens are verified using backend middleware
+- Passwords are **hashed with bcryptjs** before storing
+- The frontend uses **React Context** for global auth state
+- Error messages are displayed directly in the UI
+
+---
+
+## Future Enhancements
+
+- Add user roles (admin/user)
+- Reset password via email + token
+- Profile image upload with Multer
+- Better validation (React Hook Form / Zod)
+- Full production deployment (Netlify + Render)
+- Unit & Integration testing (Jest, React Testing Library)
+
+---
+
+## 📜 License
+
+This project is open-source and free to use under the [MIT License](https://opensource.org/licenses/MIT).
