@@ -112,6 +112,6 @@ Visit: [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## 📜 License
+##  License
 
 This project is open-source and free to use under the [MIT License](https://opensource.org/licenses/MIT).
